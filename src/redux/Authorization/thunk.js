@@ -5,7 +5,7 @@ import {
   signInService,
   logOutService,
   currentService,
-} from 'redux/service/userService';
+} from '../Service/user';
 
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',
