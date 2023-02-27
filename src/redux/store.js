@@ -1,8 +1,8 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { filterReducer } from './filterSlice';
 import { contactReducer } from './contactSlice';
 import { authReducer } from './Authorization/slice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -25,7 +25,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['user', 'token'],
 };
 
 export const store = configureStore({
@@ -35,7 +35,6 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

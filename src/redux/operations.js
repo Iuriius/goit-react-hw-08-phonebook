@@ -15,7 +15,6 @@ export const fetchContacts = createAsyncThunk(
       return thunkAPI.rejectWithValue();
     }
     token.set(persistedToken);
-
     try {
       const { data } = await getContactsService();
       return data;
@@ -36,7 +35,6 @@ export const addContact = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await addContactService({ name, number });
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

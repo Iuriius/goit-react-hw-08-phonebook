@@ -1,39 +1,32 @@
-import { Section, Title } from './App.styled';
-import { Toaster } from 'react-hot-toast';
-import { useSelector, useDispatch } from 'react-redux';
-import { Form } from './Form/Form';
-import { Filter } from './Filter/Filter';
-import { ContactsList } from './ContactsList/ContactsList';
 import { useEffect } from 'react';
-import { fetchContacts } from '../redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { LoginPage } from './Pages/Login';
+import { LayoutPage } from './Pages/Layout';
+import { PrivateRoute } from './Private/route';
+import { ContactsPage } from './Pages/Contacts';
+import { RegisterPage } from './Pages/Register';
+import { currentThunk } from '../redux/Authorization/thunk';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(currentThunk());
   }, [dispatch]);
 
   return (
-    <>
-      <div>
-        <Toaster />
-      </div>
-      <Section>
-        <Title>Phonebook</Title>
-        <Form />
-      </Section>
-      <Section>
-        {isLoading && !error && <b>Please wait...</b>}
-        <>
-          <Title>Contacts</Title>
-          <Filter />
-          <ContactsList />
-        </>
-      </Section>
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<LayoutPage />}>
+          <Route index element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="contacts" element={<ContactsPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };

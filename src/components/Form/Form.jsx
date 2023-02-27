@@ -1,8 +1,8 @@
 import toast, { Toaster } from 'react-hot-toast';
-import { Label, Input, Button, FormContainer } from './Form.styled';
-import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/operations';
 import { selectContact } from '../../redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { Label, Input, Button, FormContainer } from './Form.styled';
 
 export const Form = () => {
   const dispatch = useDispatch();
