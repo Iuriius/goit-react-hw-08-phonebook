@@ -1,4 +1,4 @@
-import { token } from './axios';
+import { token } from './Authorization/thunk';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addContactService,

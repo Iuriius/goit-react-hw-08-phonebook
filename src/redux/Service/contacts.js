@@ -1,4 +1,4 @@
-import { userApi } from '../axios';
+import { userApi } from '../Authorization/thunk';
 
 export const getContactsService = () => {
   return userApi.get('/contacts');

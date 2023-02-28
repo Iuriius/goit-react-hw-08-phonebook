@@ -1,4 +1,4 @@
-import { userApi } from '../axios';
+import { userApi } from '../Authorization/thunk';
 
 export const currentService = () => {
   return userApi.get('/users/current');
