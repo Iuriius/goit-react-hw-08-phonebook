@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { LoginPage } from './Pages/Login';
-import { LayoutPage } from './Pages/Layout';
+import { LoginPage } from './Pages/LoginPage';
+import { LayoutPage } from './Pages/LayoutPage';
 import { PrivateRoute } from './Private/route';
-import { ContactsPage } from './Pages/Contacts';
-import { RegisterPage } from './Pages/Register';
+import { ContactsPage } from './Pages/ContactsPage';
+import { RegisterPage } from './Pages/RegisterPage';
 import { currentThunk } from '../redux/Authorization/thunk';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
