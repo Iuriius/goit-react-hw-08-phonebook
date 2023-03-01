@@ -5,6 +5,7 @@ import { PrivateRoute } from './Private/route';
 import { useAuth } from '../redux/Authorization/useAuth';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { currentThunk } from '../redux/Authorization/thunk';
+import { RestrictedRoute } from '../redux/Authorization/RestrictedRoute';
 
 const LayoutPage = lazy(() => import('./Pages/LayoutPage'));
 const RegisterPage = lazy(() => import('./Pages/RegisterPage'));
