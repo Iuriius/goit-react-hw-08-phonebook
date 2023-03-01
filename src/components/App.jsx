@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { PrivateRoute } from './Private/route';
 import { useAuth } from '../redux/Authorization/useAuth';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { currentThunk } from '../redux/Authorization/thunk';
+import { PrivateRoute } from '../redux/Authorization/PrivateRoute';
 import { RestrictedRoute } from '../redux/Authorization/RestrictedRoute';
 
 const LayoutPage = lazy(() => import('./Pages/LayoutPage'));
