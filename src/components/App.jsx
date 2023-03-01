@@ -1,32 +1,39 @@
+import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { LoginPage } from './Pages/LoginPage';
-import { LayoutPage } from './Pages/LayoutPage';
 import { PrivateRoute } from './Private/route';
-import { ContactsPage } from './Pages/ContactsPage';
-import { RegisterPage } from './Pages/RegisterPage';
+import { useAuth } from '../redux/Authorization/useAuth';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { currentThunk } from '../redux/Authorization/thunk';
-import { Routes, Route, Navigate } from 'react-router-dom';
+
+const LayoutPage = lazy(() => import('./Pages/LayoutPage'));
+const RegisterPage = lazy(() => import('./Pages/RegisterPage'));
+const LoginPage = lazy(() => import('./Pages/LoginPage'));
+const ContactsPage = lazy(() => import('./Pages/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(currentThunk());
   }, [dispatch]);
 
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<LayoutPage />}>
-          <Route index element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="contacts" element={<ContactsPage />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
-    </div>
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+    <Routes>
+      <Route path="/" element={<LayoutPage />}>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/contacts" element={<ContactsPage />} />
+          }
+        />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
