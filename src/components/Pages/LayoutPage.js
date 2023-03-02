@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { Unlogged } from '../Menu/unlogged';
 import { selectAuth } from '../../redux/Authorization/slice';
 
-export const LayoutPage = () => {
+const LayoutPage = () => {
   const isLoggedIn = useSelector(selectAuth);
 
   return (
@@ -17,3 +17,4 @@ export const LayoutPage = () => {
     </>
   );
 };
+export default LayoutPage;

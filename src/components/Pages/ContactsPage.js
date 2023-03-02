@@ -10,7 +10,7 @@ import {
   selectIsLoading,
 } from '../../redux/selectors';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -35,3 +35,4 @@ export const ContactsPage = () => {
     </>
   );
 };
+export default ContactsPage;

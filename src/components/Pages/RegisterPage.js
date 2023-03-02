@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
   const errorMessage = useSelector(selectError);
@@ -116,3 +116,4 @@ export const RegisterPage = () => {
     </ThemeProvider>
   );
 };
+export default RegisterPage;

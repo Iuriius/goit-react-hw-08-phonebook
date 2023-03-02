@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 
 const theme = createTheme();
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -103,3 +103,4 @@ export const LoginPage = () => {
     </ThemeProvider>
   );
 };
+export default LoginPage;
