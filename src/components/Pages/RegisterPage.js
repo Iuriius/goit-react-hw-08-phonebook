@@ -116,4 +116,5 @@ const RegisterPage = () => {
     </ThemeProvider>
   );
 };
+
 export default RegisterPage;
