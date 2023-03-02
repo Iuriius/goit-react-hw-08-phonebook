@@ -11,7 +11,7 @@ const LayoutPage = () => {
   return (
     <>
       {isLoggedIn.token ? <Logged /> : <Unlogged />}
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
     </>
