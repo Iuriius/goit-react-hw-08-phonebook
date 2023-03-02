@@ -21,7 +21,7 @@ export const ContactsListItem = ({ contacts }) => {
         contacts.map(contact => (
           <ContactItem key={contact.id}>
             <ContactName>
-              {contact.name}:<ContactNumber>{contact.phone}</ContactNumber>
+              {contact.name}:<ContactNumber>{contact.number}</ContactNumber>
             </ContactName>
             <Button
               type="button"
