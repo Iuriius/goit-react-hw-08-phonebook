@@ -21,18 +21,18 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <h2>Phonebook</h2>
+    <div className="cont-wrap">
+      <h2 style={{ color: 'darkorchid' }}>Phonebook</h2>
       <Form />
       {isLoading && !error && <b>Please wait...</b>}
       {contacts.length > 0 && (
         <>
-          <h2>Contacts</h2>
+          <h2 style={{ color: 'darkorchid' }}>Contacts</h2>
           <Filter />
           <ContactsList />
         </>
       )}
-    </>
+    </div>
   );
 };
 export default ContactsPage;

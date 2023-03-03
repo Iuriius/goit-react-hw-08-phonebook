@@ -9,6 +9,8 @@ const styles = {
     fontWeight: 500,
     fontSize: 48,
     textAlign: 'center',
+    color: 'darkorchid',
+    textShadow: '1px 1px 1px pink',
   },
 };
 
@@ -16,7 +18,9 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        Contacts manager welcome page{' '}
+        <i>welcome to your</i>
+        <br></br>
+        <b>PHONEBOOK</b> <br></br>
         <span role="img" aria-label="Greeting icon">
           🤷‍♂️
         </span>
