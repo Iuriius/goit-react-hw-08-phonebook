@@ -29,3 +29,11 @@ p {
     align-items: center;
     gap: 2rem;
 }
+
+.text {
+    color: green;
+}
+
+.text-is-active {
+    color: red;
+}

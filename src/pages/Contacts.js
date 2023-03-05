@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Form } from '../components/Form/Form';
 import { Filter } from '../components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,11 +15,14 @@ const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contacts = useSelector(selectContact);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
+  const toggle = () => {
+    setIsActive(prev => !prev);
+  };
   return (
     <div className="cont-wrap">
       <h2 style={{ color: 'darkorchid' }}>Phonebook</h2>
@@ -27,7 +30,8 @@ const ContactsPage = () => {
       {isLoading && !error && <b>Please wait...</b>}
       {contacts.length > 0 && (
         <>
-          <h2 style={{ color: 'darkorchid' }}>Contacts</h2>
+          <h2 className={isActive ? 'text' : 'text-is-active'}>Contacts</h2>
+          <button onClick={toggle}>TOGGLE</button>
           <Filter />
           <ContactsList />
         </>
