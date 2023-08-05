@@ -20,9 +20,11 @@ const ContactsPage = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
   const toggle = () => {
     setIsActive(prev => !prev);
   };
+
   return (
     <div className="cont-wrap">
       <h2 style={{ color: 'darkorchid' }}>Phonebook</h2>
